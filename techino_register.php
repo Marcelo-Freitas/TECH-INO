@@ -280,3 +280,52 @@
               </div>
               <!-- Grid column -->
       
+              <!-- Grid column -->
+              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold mb-4">
+                  LINKS ÚTEIS
+                </h6>
+                <p>
+                  <a href="#!" class="text-reset">Preços</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Configurações</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-reset">Pedidos</a>
+                </p>
+              </div>
+              <!-- Grid column -->
+      
+              <!-- Grid column -->
+              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold mb-4">CONTATO</h6>
+                <p><i class="fas fa-home me-3 text-secondary"></i> Foz do Iguaçu, PR 10012, BR</p>
+                <p>
+                  <i class="fas fa-envelope me-3 text-secondary"></i>
+                  techino@gmail.com
+                </p>
+                <p><i class="fas fa-phone me-3 text-secondary"></i> (45) 99147-6795</p>
+              </div>
+              <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+          </div>
+        </section>
+        <!-- Section: Links  -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
+          © 2021 Copyright:
+          <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="validacao_register.js">
+</body>
+</html>
