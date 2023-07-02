@@ -1,4 +1,102 @@
+<?php
 
+    $msgErro = "";
+    $msgSucesso = "";
+
+    $email = "";
+    $senha = "";
+    $confirmSenha = "";
+    $endereco = "";
+    $cidade = "";
+    $estado = "";
+    $cep = "";
+    $termos = "";
+
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+
+    require_once("Connection.php");
+
+    $conn = Connection::getConnection();
+
+    if(isset($_POST['submetido'])) {
+        $email = isset($_POST['email']) ? trim($_POST['email']) : null;
+        $senha = isset($_POST['senha']) ? trim($_POST['senha']) : null;
+        $confirmSenha = isset($_POST['confirmSenha']) ? trim($_POST['confirmSenha']) : null;
+        $endereco = isset($_POST['endereco']) ? trim($_POST['endereco']) : null;
+        $cidade = isset($_POST['cidade']) ? trim($_POST['cidade']) : null;
+        $estado = isset($_POST['estado']) ? trim($_POST['estado']) : null;
+        $cep = isset($_POST['cep']) ? trim($_POST['cep']) : null;
+        $termos = isset($_POST['termos']) ? trim($_POST['termos']) : null;
+
+        if (! $email) {
+            $msgErro = "Informe um email válido!";
+        } else if (! $senha){
+            $msgErro = "Informe uma senha válida!";
+        } else if ($confirmSenha != $senha) {
+            $msgErro = "Confirmação de senha inválida!"; 
+        } else if (! $endereco){
+            $msgErro = "Informe um endereço válido!";
+        } else if (! $cidade){
+            $msgErro = "Informe uma cidade válida!";
+        } else if (! $estado){
+            $msgErro = "Informe um estado válido!";
+        } else if (! $cep){
+            $msgErro = "Informe um CEP válido!";
+        } else if ($termos == 0){
+            $msgErro = "Você precisa aceitar os termos!";
+        }
+        
+        else {
+            $msgSucesso = "Você foi registrado com sucesso!";
+
+            $sql = 'INSERT INTO pessoas (email, senha, confirmSenha, endereco, cidade, estado, cep, termos)' . 
+               ' VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+            $stmt = $conn->prepare($sql);
+            $stmt->execute([$email, $senha, $confirmSenha, $endereco, $cidade, $estado, $cep, $termos]);
+
+            header("location: techino_register.php");
+        }
+    }
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style type="text/css">@font-face { font-family: Roboto; src: url("chrome-extension://mcgbeeipkmelnpldkobichboakdfaeon/css/Roboto-Regular.ttf"); }</style></
+       
+</head>
+<body>
+    <nav class="py-2 bg-dark border-bottom">
+        <div class="container d-flex flex-wrap">
+        <ul class="nav me-auto">
+            <li class="nav-item"><a href="techino_home.php" class="nav-link link-light px-2 active" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="techino_about.php" class="nav-link link-light px-2">About</a></li>
+        </ul>
+        <ul class="nav">
+            <li class="nav-item"><a href="#" class="nav-link text-blue fw-bold px-2">Login</a></li>
+            <li class="nav-item"><a href="techino_register.php" class="nav-link text-blue fw-bold px-2">Sign up</a></li>
+        </ul>
+        </div>
+    </nav>
+
+    <header class="py-3 mb-4 border-bottom bg-dark">
+        <div class="container d-flex flex-wrap justify-content-center">
+            <a class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-light text-decoration-none">
+                <span class="fs-4 tex">TECH-INO</span>
+            </a>
             <form class="col-12 col-lg-auto mb-3 mb-lg-0">
                 <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
             </form>
