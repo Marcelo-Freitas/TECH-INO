@@ -96,6 +96,30 @@
               </div>
 
         </div>
+        <h2 class="main-title text-center" style="margin-top: 40px;"> Destaques do blog </h2>
+        
+        <div class="row align-items-center" style="margin: 2%;">
+          <div class="col-4" >
+            <div class="card rounded">
+            <img src="blog1.png" alt="" class="rounded">
+            </div>
+          </div>
+          <div class="col-4" >
+            <div class="card">
+            <img src="blog2.png" alt="" class="rounded">
+            </div>
+          </div>
+          <div class="col-4" >
+            <div class="card">
+            <img src="blog3.png" alt="" class="rounded">
+            </div>
+          </div>
+        </div>
+      
+        <div class="alb py-5 bg-light">
+            <div class="container">
+
+            <h2 class="main-title text-center" style="margin: 30px;"> Os mais vendidos </h2>
       
         <div class="alb py-5 bg-light">
             <div class="container">
